@@ -1,0 +1,586 @@
+```html id="n7w2qe"
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Contacto | Growsing Desarrollos</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+:root{
+  --gold:#D4A017;
+  --gold-light:#F0C040;
+  --gold-dark:#A07810;
+
+  --blue:#22B8B8;
+
+  --dark:#0D0D0D;
+  --dark2:#141414;
+  --dark3:#1C1C1C;
+  --dark4:#242424;
+
+  --white:#F5F5F0;
+  --gray:#8D8D8D;
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  font-family:'Barlow',sans-serif;
+  background:var(--dark);
+  color:var(--white);
+  min-height:100vh;
+  overflow-x:hidden;
+  position:relative;
+}
+
+/* =========================================
+   FONDO ANIMADO
+========================================= */
+
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+
+  background:
+    radial-gradient(circle at 20% 30%, rgba(240,192,64,0.14), transparent 240px),
+    radial-gradient(circle at 80% 20%, rgba(34,184,184,0.10), transparent 260px),
+    radial-gradient(circle at 70% 80%, rgba(240,192,64,0.10), transparent 240px),
+    radial-gradient(circle at 30% 75%, rgba(34,184,184,0.08), transparent 220px);
+
+  animation:bgMove 12s ease-in-out infinite alternate;
+
+  z-index:-2;
+}
+
+body::after{
+  content:"";
+  position:fixed;
+  inset:0;
+
+  background-image:
+    radial-gradient(rgba(240,192,64,0.18) 1px, transparent 1px),
+    radial-gradient(rgba(34,184,184,0.14) 1px, transparent 1px);
+
+  background-size:90px 90px;
+
+  animation:particles 20s linear infinite;
+
+  opacity:0.55;
+
+  z-index:-1;
+}
+
+@keyframes bgMove{
+
+  from{
+    transform:translateY(0px);
+  }
+
+  to{
+    transform:translateY(-25px);
+  }
+
+}
+
+@keyframes particles{
+
+  from{
+    transform:translateY(0px);
+  }
+
+  to{
+    transform:translateY(-70px);
+  }
+
+}
+
+/* =========================================
+   NAVBAR
+========================================= */
+
+#navbar{
+  position:fixed;
+  top:0;
+  left:0;
+  right:0;
+
+  height:72px;
+
+  display:flex;
+  align-items:center;
+
+  padding:0 40px;
+
+  z-index:1000;
+
+  background:rgba(13,13,13,0.92);
+
+  backdrop-filter:blur(12px);
+
+  border-bottom:1px solid rgba(255,255,255,0.04);
+}
+
+.logo{
+  font-size:1.15rem;
+  font-weight:700;
+  letter-spacing:1px;
+}
+
+.logo .blue{
+  color:var(--blue);
+}
+
+.logo .gold{
+  color:var(--gold-light);
+}
+
+/* =========================================
+   CONTENEDOR
+========================================= */
+
+.contact-wrapper{
+  width:100%;
+  min-height:100vh;
+
+  display:flex;
+  justify-content:center;
+  align-items:center;
+
+  padding:120px 20px 60px;
+}
+
+.contact-box{
+
+  width:100%;
+  max-width:850px;
+
+  background:rgba(20,20,20,0.88);
+
+  border:1px solid rgba(255,255,255,0.05);
+
+  border-radius:24px;
+
+  padding:45px;
+
+  backdrop-filter:blur(14px);
+
+  box-shadow:0 10px 50px rgba(0,0,0,0.45);
+}
+
+.contact-title{
+  text-align:center;
+  font-size:2.3rem;
+  color:var(--gold-light);
+  margin-bottom:14px;
+  font-weight:700;
+}
+
+.contact-subtitle{
+  text-align:center;
+  color:var(--gray);
+  line-height:1.7;
+  margin-bottom:40px;
+}
+
+/* =========================================
+   FORM
+========================================= */
+
+.contact-form{
+  display:grid;
+  gap:24px;
+}
+
+.form-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:20px;
+}
+
+.form-group{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+
+.form-group label{
+  color:var(--gold-light);
+  font-weight:600;
+}
+
+.form-group input,
+.form-group textarea{
+
+  width:100%;
+
+  background:var(--dark4);
+
+  border:1px solid rgba(255,255,255,0.05);
+
+  color:var(--white);
+
+  padding:15px;
+
+  border-radius:14px;
+
+  outline:none;
+
+  transition:0.3s;
+
+  font-size:0.96rem;
+}
+
+.form-group input:focus,
+.form-group textarea:focus{
+
+  border-color:var(--gold-light);
+
+  box-shadow:0 0 0 3px rgba(240,192,64,0.10);
+}
+
+textarea{
+  resize:none;
+  min-height:150px;
+}
+
+/* =========================================
+   SUBIR IMÁGENES
+========================================= */
+
+.upload-area{
+  width:100%;
+}
+
+.upload-label{
+
+  width:100%;
+
+  display:flex;
+  flex-direction:column;
+
+  justify-content:center;
+  align-items:center;
+
+  text-align:center;
+
+  gap:12px;
+
+  padding:35px 20px;
+
+  border:2px dashed rgba(240,192,64,0.22);
+
+  border-radius:18px;
+
+  background:rgba(255,255,255,0.02);
+
+  cursor:pointer;
+
+  transition:0.3s;
+}
+
+.upload-label:hover{
+
+  border-color:var(--gold-light);
+
+  background:rgba(240,192,64,0.04);
+
+  transform:translateY(-2px);
+}
+
+.upload-title{
+  color:var(--gold-light);
+  font-weight:700;
+  font-size:1.05rem;
+}
+
+.upload-text{
+  color:var(--gray);
+  line-height:1.6;
+  max-width:500px;
+}
+
+/* ESTO QUITA EL CÍRCULO/INPUT FEO */
+
+.upload-area input[type="file"]{
+  display:none;
+}
+
+/* =========================================
+   BOTÓN
+========================================= */
+
+.submit-btn{
+
+  width:100%;
+
+  padding:17px;
+
+  border:none;
+
+  border-radius:14px;
+
+  background:linear-gradient(
+    135deg,
+    var(--gold),
+    var(--gold-light)
+  );
+
+  color:#111;
+
+  font-weight:700;
+
+  font-size:1rem;
+
+  cursor:pointer;
+
+  transition:0.3s;
+
+  text-transform:uppercase;
+
+  letter-spacing:1px;
+}
+
+.submit-btn:hover{
+
+  transform:translateY(-2px);
+
+  box-shadow:0 12px 28px rgba(240,192,64,0.20);
+}
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media(max-width:768px){
+
+  #navbar{
+    padding:0 20px;
+  }
+
+  .contact-box{
+    padding:30px;
+  }
+
+  .contact-title{
+    font-size:1.9rem;
+  }
+
+}
+
+@media(max-width:480px){
+
+  .contact-box{
+    padding:22px;
+  }
+
+  .contact-title{
+    font-size:1.6rem;
+  }
+
+  .contact-subtitle{
+    font-size:0.92rem;
+  }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- =========================================
+     NAVBAR
+========================================= -->
+
+<nav id="navbar">
+
+  <div class="logo">
+
+    <span class="blue">Growsing</span>
+    <span class="gold">DESARROLLOS</span>
+
+  </div>
+
+</nav>
+
+<!-- =========================================
+     FORMULARIO
+========================================= -->
+
+<section class="contact-wrapper">
+
+  <div class="contact-box">
+
+    <h1 class="contact-title">
+      Formulario de Proyecto
+    </h1>
+
+    <p class="contact-subtitle">
+      Completa el siguiente formulario y comparte
+      detalles de tu construcción, remodelación
+      o proyecto.
+    </p>
+
+    <form
+      class="contact-form"
+      action="https://formspree.io/f/maqkooaw"
+      method="POST"
+      enctype="multipart/form-data"
+    >
+
+      <div class="form-grid">
+
+        <div class="form-group">
+
+          <label>Nombre Completo</label>
+
+          <input
+            type="text"
+            name="nombre"
+            placeholder="Tu nombre"
+            required
+          >
+
+        </div>
+
+        <div class="form-group">
+
+          <label>Correo Electrónico</label>
+
+          <input
+            type="email"
+            name="correo"
+            placeholder="correo@ejemplo.com"
+            required
+          >
+
+        </div>
+
+      </div>
+
+      <div class="form-grid">
+
+        <div class="form-group">
+
+          <label>Teléfono</label>
+
+          <input
+            type="tel"
+            name="telefono"
+            placeholder="Tu número"
+          >
+
+        </div>
+
+        <div class="form-group">
+
+          <label>Tipo de Proyecto</label>
+
+          <input
+            type="text"
+            name="proyecto"
+            placeholder="Casa, remodelación, edificio..."
+          >
+
+        </div>
+
+      </div>
+
+      <div class="form-group">
+
+        <label>Descripción del Proyecto</label>
+
+        <textarea
+          name="mensaje"
+          placeholder="Describe tu proyecto..."
+        ></textarea>
+
+      </div>
+
+      <!-- =========================================
+           SUBIR IMÁGENES
+      ========================================= -->
+
+      <div class="upload-area">
+
+        <label
+          for="file-upload"
+          class="upload-label"
+        >
+
+          <span class="upload-title">
+            Subir imágenes de referencia
+          </span>
+
+          <span class="upload-text">
+
+            Puedes subir hasta 4 imágenes
+            de planos, referencias o trabajos.
+
+          </span>
+
+        </label>
+
+        <input
+          id="file-upload"
+          type="file"
+          name="imagenes"
+          accept="image/*"
+          multiple
+        >
+
+      </div>
+
+      <button
+        type="submit"
+        class="submit-btn"
+      >
+
+        Enviar Formulario
+
+      </button>
+
+    </form>
+
+  </div>
+
+</section>
+
+<!-- =========================================
+     LIMITAR A 4 IMÁGENES
+========================================= -->
+
+<script>
+
+const upload =
+document.getElementById('file-upload');
+
+upload.addEventListener('change', () => {
+
+  if(upload.files.length > 4){
+
+    alert(
+      'Solo puedes subir máximo 4 imágenes.'
+    );
+
+    upload.value = '';
+
+  }
+
+});
+
+</script>
+
+</body>
+</html>
+```
